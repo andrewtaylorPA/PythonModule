@@ -36,7 +36,7 @@ personalallowence = 11850
 
 bracket1allowence = 22650
 bracket1 = personalallowence + bracket1allowence
-g
+
 bracket2allowence = 115499
 bracket2 = bracket1 + bracket2allowence
 
