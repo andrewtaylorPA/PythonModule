@@ -1,6 +1,5 @@
 """
 Dice Class
-Dice Class
 
 Write a class called Dice
 When initialised the object will set how many faces the die has
