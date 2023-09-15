@@ -14,11 +14,11 @@ cur = conn.cursor() # This manages the command that we want to send - cursor = i
 
 print("Dropping table")
 dropstring = "DROP TABLE Student"
-#cur.execute(dropstring)
+cur.execute(dropstring)
 
 print("Creating table")
 sqlstring = "CREATE TABLE Student ( StudentID int NOT NULL PRIMARY KEY, FirstName nvarchar(40) NOT NULL, Surname nvarchar(30) NULL, Course nvarchar(30) NULL, City nvarchar(15) NULL )"
-#cur.execute(sqlstring)
+cur.execute(sqlstring)
 
 """
 insertrows = ["INSERT INTO Student (StudentID, FirstName,Surname,Course,City) VALUES (1,'Andrew','Taylor','DevOps Apprenticeship','Selby')",
@@ -52,9 +52,15 @@ for line in StudentsToAdd:
 print("Student list index 0")
 print(studentlist[0][1])
 
-for student in studentlist:
-    sqlstring = "INSERT INTO Student (StudentID, FirstName,Surname,Course,City) VALUES (",studentlist[0][0]",",studentlist[0][1]",",studentlist[0][2]",",studentlist[0][3]",",studentlist[0][1]")"
-    print(sqlstring)
+index = 1
 
-#conn.commit()
+for student in studentlist:
+    sqlstring = "INSERT INTO Student (StudentID, FirstName,Surname,Course,City) VALUES ("+ str(index) + ",'" + studentlist[0][0] + "','" + studentlist[0][1] + "','" + studentlist[0][2] + "','" + studentlist[0][3] + "')"
+    index = index + 1
+    print(sqlstring)
+    try:
+        cur.execute(sqlstring)
+    except Exception as e:
+        print(e)
+conn.commit()
 conn.close()
