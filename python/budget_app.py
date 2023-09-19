@@ -11,8 +11,11 @@ food = budget()
 clothing = budget()
 """
 
+# Class defines default attributes for a method
+
 class Budget:
 
+    # this __init__ method initialises the variables needed for the class - note these can be static values
     def __init__(self,passedbudget,passedcategory):
         self.budget = passedbudget
         self.category = passedcategory
@@ -36,9 +39,11 @@ class Budget:
         self.display()
         transfercategory.budget
 
-Food_budget = Budget(300,"Food")
+#class called into a variable with the parameters 300 and food which relate to the budget and the category
+
+Food_budget = Budget(300,"Food") # So this creates an instance of budgety which has the food category and value of 300
 Food_budget.display()
-Food_budget.deposit()
+Food_budget.deposit() # This runs the deposit method in the class
 Food_budget.withdraw()
 
 
@@ -49,7 +54,7 @@ Shopping_budget.withdraw()
 
 transferfood = int(input("How much to transfer to shopping budget?: "))
 
-Food_budget.transfer(Shopping_budget,transferfood)
+Food_budget.transfer(Shopping_budget,transferfood) # This runs the food_budget instance of the budget class, passing in 2 variables that the method needs
 
 transfershopping = int(input("How much to transfer to food budget?: "))
 

@@ -37,5 +37,5 @@ sqlqueryvar = "UPDATE Student SET City = 'Doncaster' WHERE StudentID = 5"
 cur.execute(sqlqueryvar)
 conn.commit()
 
-#conn.commit()
-conn.close()
+conn.commit() # conn.commit commits the changes made back to the database
+conn.close() # this closes the connectiion to the db
